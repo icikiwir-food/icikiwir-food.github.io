@@ -1,0 +1,77 @@
+@import url("https://fonts.cdnfonts.com/css/poppins");
+@import url("https://fonts.cdnfonts.com/css/major-mono-display");
+
+* {
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+h1 {
+    font-family: "Major Mono Display", sans-serif;
+    font-weight: 900;
+}
+
+section h1 {
+    text-shadow: 2px 12px orange;
+
+}
+
+h3 {
+    text-shadow: 2px 5px orange;
+}
+
+p {
+    text-shadow: 2px 5px orange;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #ffffff;
+	font-size: 20px;
+	position: relative;
+}
+
+.logo {
+    filter: brightness(20);
+}
+
+.poster {
+    position: relative;
+    z-index: 1;
+    animation: mengambang 4s infinite;
+}
+
+@keyframes mengambang {
+	0%,
+	100% {
+		transform: translateY(0%);
+	}
+	50% {
+		transform: translateY(-5%);
+	}
+}
+
+nav ul li a::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+	width: 0;
+	height: 2px;
+	background-color: rgb(255, 255, 255);
+	transform: scaleX(0);
+	transform-origin: bottom right;
+	transition: transform 0.4s ease;
+}
+
+nav ul li a:hover::before {
+	width: 100%;
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+nav ul li a:not(:hover)::before {
+	width: 0;
+	transform-origin: bottom right;
+	transition: transform 0.4s ease, width 0.2s ease;
+}
